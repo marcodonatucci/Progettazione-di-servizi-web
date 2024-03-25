@@ -7,6 +7,7 @@ body{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    counter-reset: section;
 }
 
 p:first-letter {
@@ -49,10 +50,6 @@ blockquote::after{
 img.logo{
     width: 100px;
     height: auto;
-}
-
-h2 {
-    counter-reset: section;
 }
 
 h2::before{
