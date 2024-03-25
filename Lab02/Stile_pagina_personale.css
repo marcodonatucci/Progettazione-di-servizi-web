@@ -1,0 +1,74 @@
+body{
+    font-family: Arial, sans-serif;
+    line-height: 110%;
+    color: white;
+    background-color: black;
+    background-image: url(https://dnewpydm90vfx.cloudfront.net/wp-content/uploads/2019/06/Come-installare-Kali-Linux.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+p:first-letter {
+    font-weight: bold; 
+    font-size: 200%; 
+    color: blue;
+}
+
+footer{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 90%;
+    font-style: italic;
+}
+
+a{
+    color: lightblue;
+}
+
+td{
+    text-align: center;
+}
+
+td.inferiore{
+    color: pink;
+}
+
+td.superiore{
+    color: lightgreen;
+}
+
+blockquote{
+    text-align: center;
+    font-style: italic;
+}
+
+blockquote::after{
+    content: " \00A9";
+}
+
+img.logo{
+    width: 100px;
+    height: auto;
+}
+
+h2 {
+    counter-reset: section;
+}
+
+h2::before{
+    counter-increment: section;
+    content: counter(section) ". ";
+}
+
+a:visited{
+    color: blueviolet;
+}
+
+a:hover{
+    color: green;
+    background-color: white;
+}
+
+a:active{
+    background-color: red;
+}
