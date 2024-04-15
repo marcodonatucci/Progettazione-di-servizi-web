@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somma e Differenza di due numeri</title>
+    <script>
+        function calcolaOperazioni() {
+            // Chiede all'utente di inserire il primo numero
+            var numero1 = prompt("Inserisci il primo numero:");
+
+            // Converte la stringa inserita in un numero
+            numero1 = parseFloat(numero1);
+
+            // Chiede all'utente di inserire il secondo numero
+            var numero2 = prompt("Inserisci il secondo numero:");
+
+            // Converte la stringa inserita in un numero
+            numero2 = parseFloat(numero2);
+
+            // Calcola la somma dei due numeri
+            var somma = numero1 + numero2;
+
+            // Calcola la differenza dei due numeri
+            var differenza = numero1 - numero2;
+
+            // Mostra i valori introdotti, la somma e la differenza nel corpo della pagina
+            document.getElementById("valori").innerHTML = "<li>Primo numero: " + numero1 + "</li>" +
+                                                           "<li>Secondo numero: " + numero2 + "</li>" +
+                                                           "<li>Somma: " + somma + "</li>" +
+                                                           "<li>Differenza: " + differenza + "</li>";
+        }
+    </script>
+</head>
+<body>
+    <h1>Somma e Differenza di due numeri</h1>
+    <button onclick="calcolaOperazioni()">Calcola Somma e Differenza</button>
+    <ul id="valori"></ul>
+</body>
+</html>

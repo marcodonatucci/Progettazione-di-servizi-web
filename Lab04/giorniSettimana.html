@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertitore di Giorni</title>
+    <script>
+        function convertiGiorno() {
+            // Array dei giorni della settimana partendo da Lunedì
+            var giorniSettimana = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"];
+
+            // Chiede all'utente di inserire il nome di un giorno della settimana
+            var giornoInserito = prompt("Inserisci il nome di un giorno della settimana:");
+
+            // Converte il nome del giorno inserito in maiuscolo per confrontarlo con l'array
+            giornoInserito = giornoInserito.charAt(0).toUpperCase() + giornoInserito.slice(1).toLowerCase();
+
+            // Trova il numero posizionale del giorno nella settimana
+            var numeroPosizionale = giorniSettimana.indexOf(giornoInserito) + 1;
+
+            // Mostra il numero posizionale nel corpo della pagina
+            if (numeroPosizionale > 0) {
+                document.getElementById("risultato").innerHTML = "Il giorno " + giornoInserito + " corrisponde al numero posizionale " + numeroPosizionale + " della settimana.";
+            } else {
+                document.getElementById("risultato").innerHTML = "Giorno non valido. Assicurati di inserire un giorno della settimana correttamente.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Convertitore di Giorni</h1>
+    <button onclick="convertiGiorno()">Converti Giorno</button>
+    <p id="risultato"></p>
+</body>
+</html>
+

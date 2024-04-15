@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benvenuto</title>
+    <script>
+        function salutaUtente() {
+            // Chiede all'utente di inserire il proprio nome
+            var nome = prompt("Inserisci il tuo nome:");
+
+            // Converte il nome inserito in maiuscolo
+            nome = nome.toUpperCase();
+
+            // Crea il messaggio di benvenuto con il nome inserito
+            var messaggio = "Benvenuto <span id='nomeUtente'>" + nome + "</span> nel mio umile sito!";
+            
+            // Visualizza il messaggio nel corpo della pagina
+            document.getElementById("saluto").innerHTML = messaggio;
+        }
+
+        // Funzione per salutare l'utente quando clicca sul proprio nome
+        function salutaNome() {
+            // Ottiene il nome dell'utente
+            var nome = document.getElementById("nomeUtente").innerHTML;
+            
+            // Visualizza un pop-up con il saluto personalizzato
+            alert("Salve " + nome + ", sono qui ai tuoi ordini!");
+        }
+    </script>
+</head>
+<body>
+    <h1>Benvenuto</h1>
+    <button onclick="salutaUtente()">Saluta Utente</button>
+    <p id="saluto"></p>
+
+    <!-- Aggiungiamo uno stile per rendere il testo cliccabile -->
+    <style>
+        #nomeUtente {
+            cursor: pointer;
+            text-decoration: underline;
+            color: blue;
+        }
+    </style>
+
+    <!-- Aggiungiamo un evento di click al testo del saluto -->
+    <script>
+        document.addEventListener('click', function(event) {
+            if (event.target.id === 'nomeUtente') {
+                salutaNome();
+            }
+        });
+    </script>
+</body>
+</html>

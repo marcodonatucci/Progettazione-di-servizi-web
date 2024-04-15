@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica Numero Pari/Dispari</title>
+    <script>
+        function verificaNumero() {
+            // Chiede all'utente di inserire un numero intero
+            var numero = prompt("Inserisci un numero intero:");
+
+            // Converte la stringa inserita in un numero intero
+            numero = parseInt(numero);
+
+            // Controlla se il numero è pari o dispari e crea un messaggio di conseguenza
+            var messaggio;
+            if (numero % 2 === 0) {
+                messaggio = "Il numero " + numero + " è pari.";
+            } else {
+                messaggio = "Il numero " + numero + " è dispari.";
+            }
+
+            // Visualizza il messaggio nel corpo della pagina
+            document.getElementById("risultato").innerHTML = messaggio;
+        }
+    </script>
+</head>
+<body>
+    <h1>Verifica Numero Pari/Dispari</h1>
+    <button onclick="verificaNumero()">Verifica Numero</button>
+    <div id="risultato"></div>
+</body>
+</html>

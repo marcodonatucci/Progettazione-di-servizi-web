@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valutatore di Spedizione</title>
+    <script>
+        function valutaSpedizione() {
+            // Ottieni il valore della tipologia di spedizione selezionata
+            var tipoSpedizione = document.getElementById("tipoSpedizione").value;
+
+            // Ottieni il numero di giorni inserito dall'utente
+            var giorniRichiesti = parseInt(document.getElementById("giorniRichiesti").value);
+
+            // Definisci i termini di spedizione per ciascuna tipologia
+            var terminiSpedizione = {
+                "standard": 30,
+                "express": 7,
+                "gold": 3,
+                "premium": 1
+            };
+
+            // Valuta se la spedizione ha possibilità di successo
+            if (terminiSpedizione[tipoSpedizione] <= giorniRichiesti) {
+                // Spedizione garantita
+                alert("La spedizione ha possibilità di successo!");
+            } else {
+                // Spedizione a rischio
+                var discrepanza = giorniRichiesti - terminiSpedizione[tipoSpedizione];
+                console.warn("Attenzione: la spedizione richiesta potrebbe non essere garantita entro il termine indicato. Discrepanza di " + discrepanza + " giorni.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Valutatore di Spedizione</h1>
+    <label for="tipoSpedizione">Seleziona la tipologia di spedizione:</label>
+    <select id="tipoSpedizione">
+        <option value="standard">Standard</option>
+        <option value="express">Express</option>
+        <option value="gold">Gold</option>
+        <option value="premium">Premium</option>
+    </select>
+    <br>
+    <label for="giorniRichiesti">Inserisci il numero di giorni desiderati per la spedizione:</label>
+    <input type="number" id="giorniRichiesti" min="1">
+    <br>
+    <button onclick="valutaSpedizione()">Valuta Spedizione</button>
+</body>
+</html>

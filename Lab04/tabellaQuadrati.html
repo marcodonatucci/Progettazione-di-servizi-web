@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabella dei Quadrati e dei Cubi</title>
+</head>
+<body>
+    <script>
+        // Funzione per generare la tabella dei quadrati e dei cubi
+        function generaTabella() {
+            // Chiedi all'utente di inserire un numero N
+            var N = parseInt(prompt("Inserisci un numero N:"));
+
+            // Verifica se l'input è valido
+            if (isNaN(N) || N < 1) {
+                alert("Inserisci un numero valido e maggiore di zero.");
+                return;
+            }
+
+            // Creazione della tabella
+            var tabella = "<table border='1'><tr><th>Numero</th><th>Quadrato</th><th>Cubo</th></tr>";
+
+            // Calcola i quadrati e i cubi dei numeri da 1 a N e aggiungili alla tabella
+            for (var i = 1; i <= N; i++) {
+                var quadrato = i * i;
+                var cubo = i * i * i;
+                tabella += "<tr><td>" + i + "</td><td>" + quadrato + "</td><td>" + cubo + "</td></tr>";
+            }
+
+            // Chiudi la tabella
+            tabella += "</table>";
+
+            // Inserisci la tabella nel corpo della pagina
+            document.getElementById("tabella").innerHTML = tabella;
+        }
+    </script>
+
+    <h1>Tabella dei Quadrati e dei Cubi</h1>
+    <button onclick="generaTabella()">Genera Tabella</button>
+    <div id="tabella"></div>
+</body>
+</html>
