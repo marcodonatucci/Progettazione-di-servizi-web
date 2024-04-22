@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data e Ora Attuali</title>
+    <script>
+        function mostraDataOra() {
+            // Ottieni la data e l'ora correnti
+            var dataLocale = new Date();
+            var dataUTC = new Date(dataLocale.getTime() + dataLocale.getTimezoneOffset() * 60000); // Converti in UTC
+
+            // Formatta la data e l'ora per visualizzarle
+            var opzioni = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+            var dataLocaleFormattata = dataLocale.toLocaleString(undefined, opzioni);
+            var dataUTCFormattata = dataUTC.toLocaleString(undefined, { ...opzioni, timeZone: 'UTC' });
+
+            // Mostra la data e l'ora nel corpo della pagina
+            document.getElementById("dataOraLocale").textContent = "Data e Ora Locale: " + dataLocaleFormattata;
+            document.getElementById("dataOraUTC").textContent = "Data e Ora UTC: " + dataUTCFormattata;
+        }
+
+        // Aggiorna la data e l'ora ogni secondo
+        setInterval(mostraDataOra, 1000);
+    </script>
+</head>
+<body onload="mostraDataOra()">
+    <h1>Data e Ora Attuali</h1>
+    <p id="dataOraLocale"></p>
+    <p id="dataOraUTC"></p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolo Cerchio</title>
+    <script>
+        function calcolaCerchio() {
+            // Chiedi all'utente di inserire il diametro del cerchio
+            var diametro = parseFloat(prompt("Inserisci il diametro del cerchio:"));
+
+            // Verifica se l'input è valido
+            if (isNaN(diametro) || diametro <= 0) {
+                alert("Inserisci un valore valido per il diametro del cerchio.");
+                return;
+            }
+
+            // Calcola l'area e la circonferenza
+            var raggio = diametro / 2;
+            var area = Math.PI * raggio * raggio;
+            var circonferenza = 2 * Math.PI * raggio;
+
+            // Mostra i risultati nel corpo della pagina
+            document.getElementById("risultato").innerHTML = "Un cerchio di diametro " + diametro.toFixed(3) + " ha area " + area.toFixed(3) + " e circonferenza " + circonferenza.toFixed(3);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calcolo Cerchio</h1>
+    <button onclick="calcolaCerchio()">Calcola</button>
+    <p id="risultato"></p>
+</body>
+</html>

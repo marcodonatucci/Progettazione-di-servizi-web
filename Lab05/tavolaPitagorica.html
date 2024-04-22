@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tavola Pitagorica</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function generaTavolaPitagorica() {
+            // Chiedi all'utente di inserire un numero N
+            var N = parseInt(prompt("Inserisci un numero N per la tavola pitagorica:"));
+
+            // Verifica se l'input è valido
+            if (isNaN(N) || N < 1) {
+                alert("Inserisci un numero valido e maggiore di zero.");
+                return;
+            }
+
+            // Crea la tabella pitagorica
+            var tabella = "<table><tr><th></th>";
+
+            // Intestazione della tabella (prima riga)
+            for (var i = 1; i <= N; i++) {
+                tabella += "<th>" + i + "</th>";
+            }
+            tabella += "</tr>";
+
+            // Righe della tabella (rimanenti righe)
+            for (var i = 1; i <= N; i++) {
+                tabella += "<tr><th>" + i + "</th>";
+                for (var j = 1; j <= N; j++) {
+                    tabella += "<td>" + (i * j) + "</td>";
+                }
+                tabella += "</tr>";
+            }
+
+            // Chiudi la tabella
+            tabella += "</table>";
+
+            // Inserisci la tabella nel corpo della pagina
+            document.getElementById("tavolaPitagorica").innerHTML = tabella;
+        }
+    </script>
+
+    <h1>Tavola Pitagorica</h1>
+    <button onclick="generaTavolaPitagorica()">Genera Tavola Pitagorica</button>
+    <div id="tavolaPitagorica"></div>
+</body>
+</html>

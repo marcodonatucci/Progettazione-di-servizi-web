@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data di Nascita</title>
+    <script>
+        function calcolaGiornoNatale() {
+            // Ottieni la data di nascita inserita dall'utente
+            var dataInput = document.getElementById("dataNascita").value;
+
+            // Dividi la data nei suoi componenti (giorno, mese, anno)
+            var dateComponents = dataInput.split("/");
+            var giorno = parseInt(dateComponents[0]);
+            var mese = parseInt(dateComponents[1]);
+            var anno = parseInt(dateComponents[2]);
+
+            // Crea un oggetto data per la data di Natale dell'anno inserito
+            var dataNatale = new Date(anno, 11, 25); // Mese 11 corrisponde a Dicembre (Gennaio è 0)
+
+            // Ottieni il giorno della settimana in cui cade il Natale
+            var giorniSettimana = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+            var giornoNatale = giorniSettimana[dataNatale.getDay()];
+
+            // Mostra il giorno della settimana in cui cade il Natale
+            document.getElementById("output").textContent = "Il Natale dell'anno " + anno + " è caduto di " + giornoNatale;
+        }
+    </script>
+</head>
+<body>
+    <h1>Data di Nascita</h1>
+    <form onsubmit="event.preventDefault(); calcolaGiornoNatale();">
+        <label for="dataNascita">Inserisci la tua data di nascita (dd/mm/yyyy oppure mm/dd/yyyy):</label>
+        <input type="text" id="dataNascita" name="dataNascita" required pattern="\d{1,2}/\d{1,2}/\d{4}">
+        <button type="submit">Calcola</button>
+    </form>
+    <p id="output"></p>
+</body>
+</html>

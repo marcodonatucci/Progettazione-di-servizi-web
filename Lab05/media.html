@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore Media</title>
+</head>
+<body>
+    <script>
+        function calcolaMedia() {
+            var numeri = [];
+            var somma = 0;
+            var count = 0;
+
+            while (true) {
+                var input = prompt("Inserisci un numero o scrivi 'fine' per terminare:");
+
+                // Se l'utente inserisce 'fine', termina il ciclo
+                if (input.toLowerCase() === 'fine') {
+                    break;
+                }
+
+                // Converte l'input in numero
+                var numero = parseFloat(input);
+
+                // Se l'input non è un numero, visualizza un messaggio di errore sulla console
+                if (isNaN(numero)) {
+                    console.error("Errore, inserito il seguente valore non valido:", input);
+                    continue;
+                }
+
+                // Aggiungi il numero alla lista
+                numeri.push(numero);
+                count++;
+                somma += numero;
+
+                // Calcola la media
+                var media = somma / count;
+
+                // Mostra un pop-up con il numero introdotto e la media attuale
+                alert("Numero inserito: " + numero + "\nMedia attuale: " + media.toFixed(2));
+            }
+
+            // Mostra l'elenco dei numeri introdotti e la media nel corpo della pagina
+            var risultato = "Numeri introdotti: " + numeri.join(", ") + "<br>";
+            risultato += "Media aritmetica: " + (somma / count).toFixed(2);
+            document.getElementById("risultato").innerHTML = risultato;
+        }
+    </script>
+
+    <h1>Calcolatore Media</h1>
+    <button onclick="calcolaMedia()">Inizia</button>
+    <div id="risultato"></div>
+</body>
+</html>

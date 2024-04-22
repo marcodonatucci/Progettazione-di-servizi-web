@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trova il Massimo</title>
+    <script src="funzioni.js"></script> <!-- Includi il file funzioni.js -->
+    <script>
+        function trovaMassimo() {
+            // Ottieni i valori inseriti nei campi di input
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var num3 = parseFloat(document.getElementById("num3").value);
+            var num4 = parseFloat(document.getElementById("num4").value);
+            var num5 = parseFloat(document.getElementById("num5").value);
+            
+            // Utilizza la funzione Maggiore per trovare il massimo
+            var massimo = Maggiore(num1, num2, num3, num4, num5);
+            
+            // Mostra il massimo in una finestra di pop-up
+            alert("Il massimo tra i numeri inseriti è: " + massimo);
+        }
+        
+        function cancellaCampi() {
+            // Cancella il contenuto dei campi di input
+            document.getElementById("num1").value = "";
+            document.getElementById("num2").value = "";
+            document.getElementById("num3").value = "";
+            document.getElementById("num4").value = "";
+            document.getElementById("num5").value = "";
+        }
+    </script>
+</head>
+<body>
+    <h1>Trova il Massimo</h1>
+    <form>
+        <label for="num1">Numero 1:</label>
+        <input type="number" id="num1" required><br>
+        <label for="num2">Numero 2:</label>
+        <input type="number" id="num2" required><br>
+        <label for="num3">Numero 3:</label>
+        <input type="number" id="num3" required><br>
+        <label for="num4">Numero 4:</label>
+        <input type="number" id="num4" required><br>
+        <label for="num5">Numero 5:</label>
+        <input type="number" id="num5" required><br>
+        <button type="button" onclick="trovaMassimo()">Trova il massimo</button>
+        <button type="button" onclick="cancellaCampi()">Cancella</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+            min-height: 100vh; /* Impedisce che il footer si sovrapponga al contenuto */
+            margin: 0; /* Impedisce il margin predefinito del body */
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function cambiaStile(giorno) {
+            if (giorno) {
+                document.body.style.backgroundColor = "white";
+                document.body.style.color = "black";
+                document.querySelector("h1").textContent = "Adesso è giorno";
+            } else {
+                document.body.style.backgroundColor = "black";
+                document.body.style.color = "white";
+                document.querySelector("h1").textContent = "Adesso è notte";
+            }
+        }
+
+        // Funzione per inserire il footer
+        function inserisciFooter() {
+            var footer = document.createElement("footer");
+            footer.innerHTML = "Realizzato da [Nome dell'autore] &copy; 2024";
+            document.body.appendChild(footer);
+        }
+
+        // Chiamiamo la funzione per inserire il footer quando il documento è completamente caricato
+        window.onload = inserisciFooter;
+    </script>
+</head>
+<body>
+    <h1>Esercizio</h1>
+    <p>Tanto va la gatta al lardo che ci lascia lo zampino</p>
+    <p onclick="cambiaStile(true)">GIORNO</p>
+    <p onclick="cambiaStile(false)">NOTTE</p>
+</body>
+</html>
